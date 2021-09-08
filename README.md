@@ -6,7 +6,7 @@ Therefore, we need to compile librdkafka for arm as suggested [here](https://git
 
 
 ## Usage
-`make extract_files` will build docker arm64 image, compile librdkafka for arm, compress new `/usr` files into `lib_kafka_arm.tar.gz` and copy that archive to host. 
+`make extract_files` will build docker arm64 image, compile librdkafka for arm, compress new `/usr` files into `librdkafka_arm.tar.gz` and copy that archive to host. 
 
 Then we manually create a Github release with the extracted binary files.
 

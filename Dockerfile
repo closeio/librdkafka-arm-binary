@@ -8,8 +8,8 @@ RUN git clone https://github.com/edenhill/librdkafka
 WORKDIR /librdkafka
 ARG LIBRDKAFKA_VERSION
 RUN git checkout tags/v${LIBRDKAFKA_VERSION}
-RUN ./configure --prefix=/lib_kafka
+RUN ./configure --prefix=/librdkafka_arm
 RUN make
 RUN make install
 WORKDIR /
-RUN tar cvfz lib_kafka_arm.tar.gz /lib_kafka/
+RUN tar cvfz librdkafka_arm.tar.gz /librdkafka_arm/
