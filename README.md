@@ -13,7 +13,13 @@ Then we manually create a Github release with the extracted binary files.
 To install the compiled binaries, extract the tar file content into `/usr` directory.
 Example of Dockerfile:
 ```
-COPY .release/dockerfiles/closeio_app/lib_kafka.tar.gz lib_kafka.tar.gz # TODO better use curl
-RUN if [ "$TARGETPLATFORM" = "linux/arm64" ] ; then tar -xf lib_kafka.tar.gz && cp -r lib_kafka/* /usr && rm -r lib_kafka ; fi ; rm lib_kafka.tar.gz
+# More at https://github.com/closeio/librdkafka-arm-binary/tree/main
+RUN if [ "$TARGETPLATFORM" = "linux/arm64" ] ; then \
+        curl https://github.com/closeio/librdkafka-arm-binary/releases/download/v1.7.0/librdkafka_arm.tar.gz --fail --output ./librdkafka_arm.tar.gz --location && \
+        tar -xf librdkafka_arm.tar.gz && \
+        cp -r librdkafka_arm/* /usr && \
+        rm -r librdkafka_arm && \
+        rm librdkafka_arm.tar.gz; \
+    fi ;
 ```
 
