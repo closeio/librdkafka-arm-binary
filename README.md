@@ -1,6 +1,8 @@
 # librdkafka-arm-binary
 ## Why
-librdkafka, which is a dependency of Kafka python library, has no public arm64 binary. We need to compile it on our own https://github.com/confluentinc/confluent-kafka-python/issues/462#issuecomment-427657824
+Python's `confluent-kafka` module depends on librdkafka arm binary, but it [does not provide a wheel for arm](https://pypi.org/project/confluent-kafka/#files) with it.
+Specifically, the compilation of the module's C extension [requires librdkafka.](https://github.com/confluentinc/confluent-kafka-python/blob/master/src/confluent_kafka/src/confluent_kafka.h#L23)
+Therefore, we need to compile librdkafka for arm as suggested [here](https://github.com/confluentinc/confluent-kafka-python/issues/462#issuecomment-427657824).
 
 
 ## Usage
