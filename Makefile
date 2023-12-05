@@ -1,7 +1,7 @@
 .PHONY: build extract_files
 
 build:
-	docker build --progress plain --platform linux/arm64 --build-arg LIBRDKAFKA_VERSION=1.7.0 -t local/kafka-arm-binary .
+	docker build --progress plain --platform linux/arm64 --build-arg LIBRDKAFKA_VERSION=2.3.0 -t local/kafka-arm-binary .
 
 extract_files: build
 	mkdir binary_files || true
